@@ -21,7 +21,7 @@ export class CreateMinisteryDto {
    * @example [{ id: 1, name: "João Silva" }, { id: 2, name: "Maria Souza" }]
    */
   @IsArray()
-  members: User[];
+  members?: User[];
 
   /**
    * Nome ou identificação do principal responsável pelo ministério.

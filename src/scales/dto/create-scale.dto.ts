@@ -29,14 +29,6 @@ export class CreateScaleDto {
   ministeryID: number;
 
   /**
-   * Identificador único da escala.
-   * @type {number}
-   */
-  @IsInt()
-  @IsNotEmpty()
-  id: number;
-
-  /**
    * Lista de membros associados à escala.
    * @type {User[]}
    */

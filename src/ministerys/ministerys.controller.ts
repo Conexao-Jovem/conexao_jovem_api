@@ -26,20 +26,20 @@ export class MinisterysController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: number) {
-    return this.ministerysService.findByID(+id);
+  findOne(@Param('id') id: string) {
+    return this.ministerysService.findByID(id);
   }
 
   @Patch(':id')
   update(
-    @Param('id') id: number,
+    @Param('id') id: string,
     @Body() updateMinisteryDto: UpdateMinisteryDto,
   ) {
-    return this.ministerysService.update(+id, updateMinisteryDto);
+    return this.ministerysService.update(id, updateMinisteryDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: number) {
-    return this.ministerysService.delete(+id);
+  remove(@Param('id') id: string) {
+    return this.ministerysService.delete(id);
   }
 }

@@ -10,14 +10,6 @@ import {
 
 export class CreateUserDto {
   /**
-   * Identificador único do usuário.
-   * @type {number}
-   */
-  @IsInt()
-  @IsNotEmpty()
-  id: number;
-
-  /**
    * Nome completo do usuário.
    * @type {string}
    */
@@ -38,8 +30,7 @@ export class CreateUserDto {
    * @type {number}
    */
   @IsInt()
-  @IsNotEmpty()
-  ministeryID: number;
+  ministeryID?: number;
 
   /**
    * Identificador público do usuário (pode ser usado para fins de SEO ou URLs).

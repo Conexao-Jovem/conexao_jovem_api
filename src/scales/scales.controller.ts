@@ -26,17 +26,17 @@ export class ScalesController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: number) {
-    return this.scalesService.findByID(+id);
+  findOne(@Param('id') id: string) {
+    return this.scalesService.findByID(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: number, @Body() updateScaleDto: UpdateScaleDto) {
-    return this.scalesService.update(+id, updateScaleDto);
+  update(@Param('id') id: string, @Body() updateScaleDto: UpdateScaleDto) {
+    return this.scalesService.update(id, updateScaleDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: number) {
-    return this.scalesService.delete(+id);
+  remove(@Param('id') id: string) {
+    return this.scalesService.delete(id);
   }
 }

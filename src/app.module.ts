@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Global, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppService } from './app.service';
@@ -8,6 +8,7 @@ import { UsersModule } from './users/users.module';
 import { MinisterysModule } from './ministerys/ministerys.module';
 import { initializeFirebase } from './config/firebase.config';
 
+@Global()
 @Module({
   imports: [
     ConfigModule.forRoot({

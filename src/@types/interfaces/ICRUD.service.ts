@@ -22,13 +22,13 @@ export interface ICRUDService<FIND, FINDALL, CREATE, UPDATE = Partial<CREATE>> {
   /**
    * Busca um registro pelo ID.
    *
-   * @param {number} id O ID do registro.
+   * @param {string} id O ID do registro.
    * @returns {Promise<FIND | null>} Uma promessa contendo o registro encontrado ou `null` caso não exista.
    * @example
    * const user = await crudService.findByID(1);
    * console.log(user);
    */
-  findByID(id: number): Promise<FIND | null>;
+  findByID(id: string): Promise<FIND | null>;
 
   /**
    * Busca um registro pelo PID (opcional).
@@ -55,23 +55,23 @@ export interface ICRUDService<FIND, FINDALL, CREATE, UPDATE = Partial<CREATE>> {
   /**
    * Atualiza um registro existente.
    *
-   * @param {number} id O ID do registro.
+   * @param {string} id O ID do registro.
    * @param {UPDATE} partialData Dados parciais para atualização.
    * @returns {Promise<CommonResponse>} Uma promessa contendo a resposta com o status da operação.
    * @example
    * const updatedUser = await crudService.update(1, { name: 'Jane Doe' });
    * console.log(updatedUser);
    */
-  update(id: number, partialData: UPDATE): Promise<CommonResponse>;
+  update(id: string, partialData: UPDATE): Promise<CommonResponse>;
 
   /**
    * Exclui um registro pelo ID.
    *
-   * @param {number} id O ID do registro a ser excluído.
+   * @param {string} id O ID do registro a ser excluído.
    * @returns {Promise<CommonResponse>} Uma promessa contendo a resposta com o status da operação.
    * @example
    * const deletedUser = await crudService.delete(1);
    * console.log(deletedUser);
    */
-  delete(id: number): Promise<CommonResponse>;
+  delete(id: string): Promise<CommonResponse>;
 }
