@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ScalesService } from './scales.service';
 import { CreateScaleDto } from './dto/create-scale.dto';
 import { UpdateScaleDto } from './dto/update-scale.dto';
@@ -18,17 +26,17 @@ export class ScalesController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.scalesService.findOne(+id);
+  findOne(@Param('id') id: number) {
+    return this.scalesService.findByID(+id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateScaleDto: UpdateScaleDto) {
+  update(@Param('id') id: number, @Body() updateScaleDto: UpdateScaleDto) {
     return this.scalesService.update(+id, updateScaleDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.scalesService.remove(+id);
+  remove(@Param('id') id: number) {
+    return this.scalesService.delete(+id);
   }
 }

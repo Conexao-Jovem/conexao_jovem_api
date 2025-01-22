@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppService } from './app.service';
 import { ScalesModule } from './scales/scales.module';
 import { EventsModule } from './events/events.module';
 import { UsersModule } from './users/users.module';
 import { MinisterysModule } from './ministerys/ministerys.module';
+import { initializeFirebase } from './config/firebase.config';
 
 @Module({
   imports: [
@@ -18,6 +19,15 @@ import { MinisterysModule } from './ministerys/ministerys.module';
     MinisterysModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: 'FIRESTORE',
+      useFactory: (configService: ConfigService) =>
+        initializeFirebase(configService),
+      inject: [ConfigService],
+    },
+  ],
+  exports: ['FIRESTORE'],
 })
 export class AppModule {}
